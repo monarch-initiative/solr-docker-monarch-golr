@@ -12,8 +12,6 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 VOLUME /solr
 
-EXPOSE 8983
-
 RUN apt-get -y update && apt-get install -y software-properties-common python-software-properties
 RUN apt-get install -y curl
 
