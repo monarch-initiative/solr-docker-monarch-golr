@@ -5,7 +5,7 @@ set -e
 /data/solr-6.2.1/bin/solr start
 /data/solr-6.2.1/bin/solr create -c golr 
 /data/solr-6.2.1/bin/solr stop
-rm /data/solr-6.2.1/server/solr/search/conf/managed-schema 
+rm /data/solr-6.2.1/server/solr/golr/conf/managed-schema 
 cd /data/golr-schema && mvn exec:java -Dexec.mainClass="org.bbop.cli.Main" -Dexec.args="-c /data/monarch-app/conf/golr-views/oban-config.yaml -o /data/solr-6.2.1/server/solr/golr/conf/schema.xml"
 wget -O /data/scigraph.tgz http://scigraph-data-dev.monarchinitiative.org/static_files/scigraph.tgz 
 cd /data/ && tar xzfv scigraph.tgz
