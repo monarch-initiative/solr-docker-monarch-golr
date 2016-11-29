@@ -13,6 +13,7 @@ mkdir -p /solr/json
 /data/solr-6.2.1/bin/solr start -m 10g
 cd /data/golr-loader && java -Xmx100G -Dlog4j.configuration=file:/data/log4j.properties -jar target/golr-loader-0.0.1-SNAPSHOT.jar -g /data/graph.yaml -q /data/monarch-cypher-queries/src/main/cypher/golr-loader -o /solr/json/ -s http://localhost:8983/solr/golr
 /data/solr-6.2.1/bin/solr stop
+rm -rf /solr/json
 cd /data/solr-6.2.1/server/solr && tar czfv golr.tgz golr/
 rm -rf /data/solr-6.2.1/server/solr/golr
 mv /data/solr-6.2.1/server/solr/golr.tgz /solr
