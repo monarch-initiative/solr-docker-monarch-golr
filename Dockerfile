@@ -33,7 +33,7 @@ RUN apt-get -y update && apt-get install -y git
 # Define working directory.
 WORKDIR /data
 ADD files/functions.inc /data/
-ADD files/log4j.properties /data/
+ADD files/logback.xml /data/
 ADD files/run.sh /data/
 
 # Define commonly used JAVA_HOME variable
