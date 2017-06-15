@@ -47,7 +47,7 @@ RUN git clone https://github.com/monarch-initiative/monarch-app.git /data/monarc
 RUN git clone https://github.com/berkeleybop/golr-schema /data/golr-schema
 
 RUN cd /data/scigraph && mvn install -DskipTests -DskipITs
-RUN cd /data/golr-loader && mvn install
+RUN cd /data/golr-loader && git checkout solr-socket-fix && mvn install -Dmaven.test.skip
 RUN cd /data/dipper/maven && mvn install
 RUN cd /data/monarch-cypher-queries && mvn install
 RUN cd /data/golr-schema && mvn install
