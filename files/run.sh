@@ -2,6 +2,7 @@
 
 set -e
 
+mv /data/solrconfig.xml  /data/solr-6.2.1/server/solr/golr/conf/
 /data/solr-6.2.1/bin/solr start
 /data/solr-6.2.1/bin/solr create -c golr
 /data/solr-6.2.1/bin/solr stop
