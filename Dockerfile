@@ -53,6 +53,8 @@ RUN cd /data/dipper/maven && mvn install
 RUN cd /data/monarch-cypher-queries && mvn install
 RUN cd /data/golr-schema && mvn install
 
+RUN wget https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/3.0.8.6/apoc-3.0.8.6-all.jar /data/
+
 RUN wget http://archive.apache.org/dist/lucene/solr/6.2.1/solr-6.2.1.tgz -P /data/
 RUN cd /data && tar xzfv /data/solr-6.2.1.tgz
 
