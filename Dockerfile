@@ -41,8 +41,8 @@ ADD files/solrconfig.xml /data/
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN git clone https://github.com/SciGraph/SciGraph.git /data/scigraph
-RUN git clone -b optimize-loader https://github.com/SciGraph/golr-loader.git /data/golr-loader
-RUN git clone -b apoc-update https://github.com/monarch-initiative/monarch-cypher-queries.git /data/monarch-cypher-queries
+RUN git clone https://github.com/SciGraph/golr-loader.git /data/golr-loader
+RUN git clone https://github.com/monarch-initiative/monarch-cypher-queries.git /data/monarch-cypher-queries
 RUN git clone https://github.com/monarch-initiative/dipper.git /data/dipper
 RUN git clone https://github.com/monarch-initiative/monarch-app.git /data/monarch-app
 RUN git clone https://github.com/berkeleybop/golr-schema /data/golr-schema
@@ -52,8 +52,6 @@ RUN cd /data/golr-loader && mvn install -Dmaven.test.skip
 RUN cd /data/dipper/maven && mvn install
 RUN cd /data/monarch-cypher-queries && mvn install
 RUN cd /data/golr-schema && mvn install
-
-RUN wget https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/3.0.8.6/apoc-3.0.8.6-all.jar -P /data/
 
 RUN wget http://archive.apache.org/dist/lucene/solr/6.2.1/solr-6.2.1.tgz -P /data/
 RUN cd /data && tar xzfv /data/solr-6.2.1.tgz
