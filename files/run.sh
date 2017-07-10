@@ -2,6 +2,15 @@
 
 set -e
 
+export JVM_OPTS=" \
+-XX:+UseG1GC \
+-XX:+ParallelRefProcEnabled \
+-XX:G1HeapRegionSize=8m \
+-XX:MaxGCPauseMillis=200 \
+-XX:+UseLargePages \
+-XX:+AggressiveOpts \
+"
+
 /data/solr-6.2.1/bin/solr start
 /data/solr-6.2.1/bin/solr create -c golr
 /data/solr-6.2.1/bin/solr stop
