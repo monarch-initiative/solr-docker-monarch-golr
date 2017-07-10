@@ -2,14 +2,6 @@
 
 set -e
 
-export JVM_OPTS=" \
--XX:+UseG1GC \
--XX:+ParallelRefProcEnabled \
--XX:G1HeapRegionSize=8m \
--XX:MaxGCPauseMillis=200 \
--XX:+UseLargePages \
--XX:+AggressiveOpts \
-"
 
 /data/solr-6.2.1/bin/solr start
 /data/solr-6.2.1/bin/solr create -c golr
@@ -20,6 +12,7 @@ wget -O /data/scigraph.tgz http://scigraph-data-dev.monarchinitiative.org/static
 cd /data/ && tar xzfv scigraph.tgz
 mkdir /data/graph/plugins && mv /data/apoc-3.0.8.6-all.jar /data/graph/plugins/
 mv /data/solrconfig.xml  /data/solr-6.2.1/server/solr/golr/conf/
+mv /data/jetty-https.xml /data/solr-6.2.1/server/etc/
 mkdir -p /solr/json
 /data/solr-6.2.1/bin/solr start -m 8g
 cd /data/golr-loader && java -Xmx100G -Dlogback.configurationFile=file:/data/logback.xml -jar target/golr-loader-0.0.1-SNAPSHOT.jar -g /data/graph.yaml -q /data/monarch-cypher-queries/src/main/cypher/golr-loader/ -s http://localhost:8983/solr/golr

@@ -36,6 +36,7 @@ ADD files/functions.inc /data/
 ADD files/logback.xml /data/
 ADD files/run.sh /data/
 ADD files/solrconfig.xml /data/
+ADD files/jetty-https.xml /data/
 
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
