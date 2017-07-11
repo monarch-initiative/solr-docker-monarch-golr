@@ -14,7 +14,7 @@ function getGraphConfiguration()
 {
   location=$1
   printf "location: $location\n"
-  printf "neo4jConfig:\n    dump_configuration : true\n    dbms.pagecache.memory : 80G\n"
+  printf "neo4jConfig:\n    dump_configuration : true\n    dbms.pagecache.memory : 50G\n"
   printf "curies:\n"
   if [[ $(isUrl $2) == 0 ]]
   then
