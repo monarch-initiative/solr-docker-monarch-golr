@@ -15,7 +15,7 @@ mv /data/solrconfig.xml  /data/solr-6.2.1/server/solr/golr/conf/
 #mv /data/jetty-http.xml /data/solr-6.2.1/server/etc/
 mkdir -p /solr/json
 /data/solr-6.2.1/bin/solr start -m 4g
-cd /data/golr-loader && java -Xmx100G -XX:NewRatio=2 -XX:+UseG1GC -XX:MaxGCPauseMillis=2000 -XX:ConcGCThreads=12 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -Dlogback.configurationFile=file:/data/logback.xml -jar target/golr-loader-0.0.1-SNAPSHOT.jar -g /data/graph.yaml -q /data/monarch-cypher-queries/src/main/cypher/golr-loader/ -s http://localhost:8983/solr/golr
+cd /data/golr-loader && java -Xmx100G -XX:NewRatio=2 -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -XX:+ParallelRefProcEnabled -XX:+UseLargePages -XX:ParallelGCThreads=64 -XX:ConcGCThreads=64 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -Dlogback.configurationFile=file:/data/logback.xml -jar target/golr-loader-0.0.1-SNAPSHOT.jar -g /data/graph.yaml -q /data/monarch-cypher-queries/src/main/cypher/golr-loader/ -s http://localhost:8983/solr/golr
 /data/solr-6.2.1/bin/solr stop || true
 #rm -rf /solr/json
 cd /data/solr-6.2.1/server/solr && tar cfv golr.tar golr/
