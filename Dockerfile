@@ -42,7 +42,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN git clone https://github.com/SciGraph/SciGraph.git /data/scigraph
 RUN git clone https://github.com/SciGraph/golr-loader.git /data/golr-loader
-RUN git clone https://github.com/monarch-initiative/monarch-cypher-queries.git /data/monarch-cypher-queries
+RUN git clone -b remove-distinct https://github.com/monarch-initiative/monarch-cypher-queries.git /data/monarch-cypher-queries
 RUN git clone https://github.com/monarch-initiative/dipper.git /data/dipper
 RUN git clone https://github.com/monarch-initiative/monarch-app.git /data/monarch-app
 RUN git clone https://github.com/berkeleybop/golr-schema /data/golr-schema
