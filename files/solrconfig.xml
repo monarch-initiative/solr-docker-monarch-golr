@@ -849,6 +849,7 @@
   <initParams path="/update/**">
     <lst name="defaults">
       <str name="update.chain">add-unknown-fields-to-the-schema</str>
+      <str name="update.chain">add_source_count</str> 
     </lst>
   </initParams>
 
