@@ -1317,6 +1317,20 @@
     </processor>
     <processor class="solr.RunUpdateProcessorFactory"/>
   </updateRequestProcessorChain>
+ 
+  <updateRequestProcessorChain name="add_source_count">
+   <processor class="solr.CloneFieldUpdateProcessorFactory">
+     <str name="source">source</str>
+     <str name="dest">source_count</str>
+   </processor>
+   <processor class="solr.CountFieldValuesUpdateProcessorFactory">
+     <str name="fieldName">source_count</str>
+   </processor>
+   <processor class="solr.DefaultValueUpdateProcessorFactory">
+     <str name="fieldName">source_count</str>
+     <int name="value">0</int>
+   </processor>
+ </updateRequestProcessorChain>
 
   <!-- Deduplication
 
