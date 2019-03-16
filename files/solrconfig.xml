@@ -849,14 +849,9 @@
   <initParams path="/update/**">
     <lst name="defaults">
       <str name="update.chain">add-unknown-fields-to-the-schema</str>
-    </lst>
-  </initParams>
- 
-  <requestHandler name="/update/**" class="solr.UpdateRequestHandler">
-    <lst name="defaults">
       <str name="update.chain">add_source_count</str> 
     </lst>
-  </requestHandler>
+  </initParams>
 
   <!-- Solr Cell Update Request Handler
 
@@ -1336,6 +1331,8 @@
      <str name="fieldName">source_count</str>
      <int name="value">0</int>
    </processor>
+   <processor class="solr.LogUpdateProcessorFactory" />
+   <processor class="solr.RunUpdateProcessorFactory" />
  </updateRequestProcessorChain>
 
   <!-- Deduplication
