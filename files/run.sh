@@ -15,6 +15,8 @@ mkdir -p /solr/json
 cd /data/golr-loader && java -Xmx90G -Dlogback.configurationFile=file:/data/logback.xml -jar target/golr-loader-0.0.1-SNAPSHOT.jar -g /data/graph.yaml -q /data/monarch-cypher-queries/src/main/cypher/golr-loader/ -s http://localhost:8983/solr/golr
 /data/solr-6.2.1/bin/solr stop || true
 #rm -rf /solr/json
+rm /data/scigraph.tgz
+rm -rf /data/graph/
 cd /data/solr-6.2.1/server/solr && tar cfv golr.tar golr/
 rm -rf /data/solr-6.2.1/server/solr/golr
 mv /data/solr-6.2.1/server/solr/golr.tar /solr
