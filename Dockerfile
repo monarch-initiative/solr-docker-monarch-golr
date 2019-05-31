@@ -1,34 +1,11 @@
-#
-# Oracle Java 8 Dockerfile
-#
-# https://github.com/dockerfile/java
-# https://github.com/dockerfile/java/tree/master/oracle-java8
-#
-
-# Pull base image.
-FROM ubuntu:16.04
+FROM maven:3.6.0-jdk-8-slim
 # use bash
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 VOLUME /solr
 
-RUN apt-get -y update && apt-get install -y software-properties-common python-software-properties
-RUN apt-get install -y curl
-
-# Install Java.
-RUN \
-  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-  add-apt-repository -y ppa:webupd8team/java && \
-  apt-get update && \
-  apt-get install -y oracle-java8-installer && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm -rf /var/cache/oracle-jdk8-installer
-
-# Install Maven.
-RUN apt-get -y update && apt-get install -y maven
-
-# Install Git.
-RUN apt-get -y update && apt-get install -y git
+# Install git and wget
+RUN apt-get -y update && apt-get install -y git wget
 
 # Define working directory.
 WORKDIR /data
@@ -36,9 +13,6 @@ ADD files/functions.inc /data/
 ADD files/logback.xml /data/
 ADD files/run.sh /data/
 ADD files/solrconfig.xml /data/
-
-# Define commonly used JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN git clone https://github.com/SciGraph/SciGraph.git /data/scigraph
 RUN git clone https://github.com/SciGraph/golr-loader.git /data/golr-loader
