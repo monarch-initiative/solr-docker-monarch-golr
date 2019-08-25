@@ -14,7 +14,7 @@ ADD files/logback.xml /data/
 ADD files/run.sh /data/
 ADD files/solrconfig.xml /data/
 
-RUN git clone https://github.com/SciGraph/SciGraph.git /data/scigraph
+RUN git clone -b golrloader-issue-25 https://github.com/SciGraph/SciGraph.git /data/scigraph
 RUN git clone https://github.com/SciGraph/golr-loader.git /data/golr-loader
 RUN git clone https://github.com/monarch-initiative/monarch-cypher-queries.git /data/monarch-cypher-queries
 RUN git clone https://github.com/monarch-initiative/dipper.git /data/dipper
