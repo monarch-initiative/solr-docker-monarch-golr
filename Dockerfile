@@ -30,6 +30,6 @@ RUN cd /data/golr-schema && mvn install
 RUN wget http://archive.apache.org/dist/lucene/solr/6.2.1/solr-6.2.1.tgz -P /data/
 RUN cd /data && tar xzfv /data/solr-6.2.1.tgz
 
-RUN cd /data && source /data/functions.inc && getGraphConfiguration /data/graph https://archive.monarchinitiative.org/201910/translationtable/curie_map.yaml > graph.yaml
+RUN cd /data && source /data/functions.inc && getGraphConfiguration /data/graph https://archive.monarchinitiative.org/201911/translationtable/curie_map.yaml > graph.yaml
 
 CMD /data/run.sh
