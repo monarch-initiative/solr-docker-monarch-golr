@@ -3,7 +3,6 @@ FROM maven:3.6.0-jdk-8-slim
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 ARG CURIE_MAP='https://archive.monarchinitiative.org/beta/translationtable/curie_map.yaml'
-VOLUME /solr
 
 RUN adduser --disabled-password --uid 1006 monarch
 
@@ -34,5 +33,6 @@ RUN cd /data && tar xzfv /data/solr-6.2.1.tgz
 RUN cd /data && source /data/functions.inc && getGraphConfiguration /data/graph $CURIE_MAP > graph.yaml
 
 USER monarch
+VOLUME /solr
 
 CMD /data/run.sh
