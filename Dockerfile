@@ -5,6 +5,8 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 ARG CURIE_MAP='https://archive.monarchinitiative.org/beta/translationtable/curie_map.yaml'
 VOLUME /solr
 
+RUN adduser --disabled-password --uid 1006 monarch
+
 # Install git and wget
 RUN apt-get -y update && apt-get install -y git wget
 
@@ -30,5 +32,7 @@ RUN wget http://archive.apache.org/dist/lucene/solr/6.2.1/solr-6.2.1.tgz -P /dat
 RUN cd /data && tar xzfv /data/solr-6.2.1.tgz
 
 RUN cd /data && source /data/functions.inc && getGraphConfiguration /data/graph $CURIE_MAP > graph.yaml
+
+USER monarch
 
 CMD /data/run.sh
