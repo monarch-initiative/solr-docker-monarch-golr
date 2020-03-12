@@ -11,7 +11,7 @@ RUN apt-get -y update && apt-get install -y git wget
 RUN adduser --disabled-password --uid '$SOLR_UID' solr
 
 WORKDIR /data
-RUN chown solr:solr /solr
+RUN chown solr:solr /data
 
 USER solr
 
