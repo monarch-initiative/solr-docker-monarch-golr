@@ -2,7 +2,7 @@
 
 set -e
 
-WORKDIR=/home/monarch/data
+WORKDIR=/data
 
 cd $WORKDIR
 
