@@ -8,7 +8,7 @@ ARG SOLR_UID='1006'
 # Install git and wget
 RUN apt-get -y update && apt-get install -y git wget
 
-RUN adduser --disabled-password --uid '$SOLR_UID' solr
+RUN adduser --disabled-password --uid "$SOLR_UID" solr
 
 WORKDIR /data
 RUN chown solr:solr /data
