@@ -28,6 +28,7 @@ RUN cd /data/golr-schema && mvn install
 
 RUN wget http://archive.apache.org/dist/lucene/solr/6.2.1/solr-6.2.1.tgz -P /data/
 RUN cd /data && tar xzfv /data/solr-6.2.1.tgz
+RUN chmod -R 755 /data
 
 RUN cd /data && source /data/functions.inc && getGraphConfiguration /data/graph $CURIE_MAP > graph.yaml
 
