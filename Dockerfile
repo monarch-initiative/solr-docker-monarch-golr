@@ -10,6 +10,9 @@ RUN apt-get -y update && apt-get install -y git wget
 
 # Define working directory.
 WORKDIR /data
+
+ENV MAVEN_CONFIG "$WORKDIR/.m2"
+
 ADD files/functions.inc /data/
 ADD files/logback.xml /data/
 ADD files/run.sh /data/
