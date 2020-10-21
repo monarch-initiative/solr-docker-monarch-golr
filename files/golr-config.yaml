@@ -62,6 +62,7 @@ fields:
     display_name: Subject
     type: string
     property: []
+    searchable: true
   
   - id: subject_eq
     description: "Reflexive equivalent/same as closure"
@@ -107,6 +108,7 @@ fields:
     display_name: Subject Taxon
     type: string
     property: []
+    searchable: true
 
   - id: subject_taxon_closure
     description: "Reflexive closure of taxon. ALWAYS up SubClassOf."
@@ -133,6 +135,7 @@ fields:
     display_name: Subject Gene
     type: string
     property: []
+    searchable: true
 
   - id: subject_gene_closure
     description: "Reflexive closure of gene."
@@ -203,6 +206,7 @@ fields:
     display_name: Object
     type: string
     property: []
+    searchable: true
     
   - id: object_eq
     description: "Reflexive equivalent/same as closure"
@@ -248,6 +252,7 @@ fields:
     display_name: Object Taxon
     type: string
     property: []
+    searchable: true
 
   - id: object_taxon_closure
     description: "Reflexive closure of taxon. ALWAYS up SubClassOf."
@@ -274,6 +279,7 @@ fields:
     display_name: Object Gene
     type: string
     property: []
+    searchable: true
 
   - id: object_gene_closure
     description: "Reflexive closure of gene."
