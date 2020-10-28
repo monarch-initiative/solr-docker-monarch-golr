@@ -27,7 +27,7 @@ ADD files/golr-config.yaml /data
 
 RUN git clone https://github.com/SciGraph/SciGraph.git /data/scigraph
 RUN git clone https://github.com/SciGraph/golr-loader.git /data/golr-loader
-RUN git clone -b dcterms https://github.com/monarch-initiative/monarch-cypher-queries.git /data/monarch-cypher-queries
+RUN git clone https://github.com/monarch-initiative/monarch-cypher-queries.git /data/monarch-cypher-queries
 RUN git clone https://github.com/berkeleybop/golr-schema /data/golr-schema
 
 RUN cd /data/scigraph && mvn install -DskipTests -DskipITs
