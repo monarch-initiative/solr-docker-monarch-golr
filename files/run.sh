@@ -17,7 +17,7 @@ wget -O $WORKDIR/scigraph.tgz http://scigraph-data-dev.monarchinitiative.org/sta
 cd $WORKDIR && tar xzfv scigraph.tgz
 mv ./solrconfig.xml  ./solr-6.2.1/server/solr/golr/conf/
 ./solr-6.2.1/bin/solr start -p 8983 -m 10g
-cd ./golr-loader && java -Xmx250G -Dlogback.configurationFile=file:$WORKDIR/logback.xml -jar target/golr-loader-0.0.1-SNAPSHOT.jar -g $WORKDIR/graph.yaml -q $WORKDIR/monarch-cypher-queries/src/main/cypher/golr-loader/ -s http://localhost:8983/solr/golr
+cd ./golr-loader && java -Xmx275G -Dlogback.configurationFile=file:$WORKDIR/logback.xml -jar target/golr-loader-0.0.1-SNAPSHOT.jar -g $WORKDIR/graph.yaml -q $WORKDIR/monarch-cypher-queries/src/main/cypher/golr-loader/ -s http://localhost:8983/solr/golr
 rm $WORKDIR/scigraph.tgz
 rm -rf $WORKDIR/graph/
 # curl http://localhost:8983/solr/golr/update?optimize=true
